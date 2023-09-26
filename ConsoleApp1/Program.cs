@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 
+ static void Main(string[] args){
 double a;
 double b;
 char operation;
@@ -56,3 +57,4 @@ else
     Console.WriteLine("Неизвестный знак операции!");
 }
 Console.ReadKey();
+ }
