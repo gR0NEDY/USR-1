@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
-
+// оформите в соответсвии с нотациями!
  static void Main(string[] args){
 double a;
 double b;
