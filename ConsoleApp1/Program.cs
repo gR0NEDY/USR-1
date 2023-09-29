@@ -1,60 +1,82 @@
-﻿using System;
-using System.ComponentModel.Design;
-// оформите в соответсвии с нотациями!
- static void Main(string[] args){
-double a;
-double b;
-char operation;
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Введите первое число!");
-Console.ResetColor();
-a = Convert.ToDouble(Console.ReadLine());
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Введите второе число!");
-Console.ResetColor();
-b = Convert.ToDouble(Console.ReadLine());
-Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine("Введите знак операции, которую хотите произвести с числами!");
-Console.ResetColor();
-operation = Convert.ToChar(Console.ReadLine());
-if (operation == '+')
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
 {
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine("Сумма чисел " + a + " и " + b + " равна " + (a + b));
-    Console.ResetColor();
+    class Program
+    {
+        static double a;
+        static double b;
+        static char d;
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Здравствуйте! Вы пользуетесь калькулятором.");
+            Console.WriteLine("Доступные операции: + - * / ^");
+            Console.WriteLine("Помните: я - студент. Если Вы вмсето цифры введёте букву - это не моя проблема. Код умрёт(((");
+            Console.WriteLine("Введите I число:");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введите нужное действие:");
+            d = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("Введите II число:");
+            b = Convert.ToDouble(Console.ReadLine());
+            if (d == '+')
+            {
+                summa();
+            }
+            else if (d == '-')
+            {
+                raznost();
+            }
+            else if (d == '*')
+            {
+                umnojit();
+            }
+            else if (d == '/')
+            {
+                delenie();
+            }
+            else if (d == '^')
+            {
+                stepen();
+            }
+            Console.ReadKey();
+        }
+
+        static void summa()
+        {
+            Console.WriteLine("Выбранное действие - сумма");
+            Console.WriteLine("Результат:" +  (a + b));
+        }
+        static void raznost()
+        {
+            Console.WriteLine("Выбранное действие - разность");
+            Console.WriteLine("Результат:" + (a - b));
+        }
+        static void umnojit()
+        {
+            Console.WriteLine("Выбранное действие - умножение");
+            Console.WriteLine("Результат:" + (a * b));
+        }
+        static void delenie()
+        {
+            if (b == 0)
+            {
+                Console.WriteLine("Зачем вам делить на 0?");
+            }
+            else
+            {
+                Console.WriteLine("Выбранное действие - деление");
+                Console.WriteLine("Результат:" + (a / b));
+            }
+        }
+        static void stepen()
+        {
+            Console.WriteLine("Выбранное действие - степень");
+            Console.WriteLine("Результат:" + Math.Pow(a,b));
+        }
+    }
 }
-else if (operation == '-')
-{
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine("Разность чисел " + a + " и " + b + " равна " + (a - b));
-    Console.ResetColor();
-}
-else if (operation == '*')
-{
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine("Произведение чисел " + a + " и " + b + " равно " + (a * b));
-    Console.ResetColor();
-}
-else if (b == 0 & operation == '/')
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine("Ошибка, деление на ноль невозможно!");
-    Console.ResetColor();
-}
-else if (operation == '/')
-{
-    Console.ForegroundColor = ConsoleColor.Black;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine("Частное чисел " + a + " и " + b + " равно " + (a / b));
-    Console.ResetColor();
-}
-else
-{
-    Console.WriteLine("Неизвестный знак операции!");
-}
-Console.ReadKey();
- }
+        
